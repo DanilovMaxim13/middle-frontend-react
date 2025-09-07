@@ -1,7 +1,35 @@
-.burger_constructor {
+.burger_constructor_wrapper {
   display: flex;
   flex-direction: column;
+  gap: 40px;
+  box-sizing: border-box;
   width: 600px;
+  max-height: 100%;
   padding-bottom: 20px;
   color: var(--text-primary-color);
+}
+
+.burger_constructor,
+.ingredients_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: auto;
+}
+
+.constructor_element {
+  max-height: 80px;
+}
+
+.ingredient {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: 40px;
 }
