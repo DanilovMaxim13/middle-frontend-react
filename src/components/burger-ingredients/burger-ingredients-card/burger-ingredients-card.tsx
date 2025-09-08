@@ -1,8 +1,9 @@
 import { Counter } from '@krgaa/react-developer-burger-ui-components';
 import { useState } from 'react';
 
-import DetailsIngredientModal from '@components/burger-ingredients/burger-ingredients-card/details-ingredient-modal/details-ingredient-modal.tsx';
+import DetailsIngredient from '@components/burger-ingredients/burger-ingredients-card/details-ingredient/details-ingredient.tsx';
 import Price from '@components/common/price/price.tsx';
+import Modal from '@components/modal/modal.tsx';
 
 import type { TIngredient } from '@/utils/types';
 
@@ -30,12 +31,13 @@ const BurgerIngredientCard = ({
         <Counter count={2} size="default" />
       </div>
 
-      <DetailsIngredientModal
-        title="Детали ингредиента"
+      <Modal
         isOpen={isOpenModal}
-        ingredient={ingredient}
         onClose={() => setIsOpenModal(false)}
-      />
+        title="Детали ингредиента"
+      >
+        <DetailsIngredient ingredient={ingredient} />
+      </Modal>
     </>
   );
 };

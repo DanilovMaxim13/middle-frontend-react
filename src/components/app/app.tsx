@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { AppHeader } from '@components/app-header/app-header';
 import { BurgerConstructor } from '@components/burger-constructor/burger-constructor';
 import { BurgerIngredients } from '@components/burger-ingredients/burger-ingredients';
+import { baseUrl } from '@components/constants/api.ts';
 
 import type { TIngredient, TResponceIngredient } from '@utils/types.ts';
 import type React from 'react';
@@ -19,7 +20,7 @@ export const App = (): React.JSX.Element => {
       setIsLoading(true);
 
       try {
-        const res = await fetch('https://norma.nomoreparties.space/api/ingredients');
+        const res = await fetch(`${baseUrl}/api/ingredients`);
 
         if (!res.ok) {
           new Error('Ошибка сервера!');

@@ -1,5 +1,6 @@
 import { CloseIcon } from '@krgaa/react-developer-burger-ui-components';
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 import styles from './modal.module.css';
 
@@ -31,7 +32,7 @@ const Modal = ({ children, isOpen, onClose, title }: PropsModal): React.JSX.Elem
     return <></>;
   }
 
-  return (
+  return createPortal(
     <div className={styles.modal_backdrop} onClick={handleBackdropClick}>
       <div className={`${styles.modal} p-10`}>
         <header className={styles.modal_header}>
@@ -40,7 +41,8 @@ const Modal = ({ children, isOpen, onClose, title }: PropsModal): React.JSX.Elem
         </header>
         <div className={`${styles.modal_content} pl-15 pr-15`}>{children}</div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
