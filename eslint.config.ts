@@ -74,6 +74,7 @@ export default tseslint.config(
       ],
       '@typescript-eslint/no-unused-imports': 'off',
       'unused-imports/no-unused-vars': 'off',
+      "prettier/prettier": ["error", { "endOfLine": "auto" }],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {

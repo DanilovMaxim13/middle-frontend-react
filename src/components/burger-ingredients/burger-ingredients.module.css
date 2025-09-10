@@ -1,4 +1,4 @@
-.burger_ingredients {
+.burger_ingredients_wrapper {
   display: flex;
   flex-direction: column;
   max-width: 600px;
@@ -12,4 +12,15 @@
   padding: 0;
   text-align: center;
   list-style-type: none;
+}
+
+.burger_ingredients {
+  max-height: 100%;
+  overflow: auto;
+}
+
+.category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
 }
