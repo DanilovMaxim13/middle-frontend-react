@@ -7,3 +7,11 @@
 .description {
   color: rgb(133 133 173);
 }
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  color: red;
+}

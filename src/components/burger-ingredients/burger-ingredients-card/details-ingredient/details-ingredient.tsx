@@ -1,15 +1,24 @@
-import type { TIngredient } from '@utils/types.ts';
+import { useSelector } from 'react-redux';
+
+import { getIngredientById } from '@services/burger-ingredients/selectors.ts';
+
 import type React from 'react';
 
 import styles from './details-ingredient.module.css';
 
 type PropsDetailsIngredient = {
-  ingredient: TIngredient;
+  ingredientId: string;
 };
 
 const DetailsIngredient = ({
-  ingredient,
+  ingredientId,
 }: PropsDetailsIngredient): React.JSX.Element => {
+  const ingredient = useSelector(getIngredientById(ingredientId));
+
+  if (!ingredient) {
+    return <div className={styles.error}>Не удалось загрузить данные!</div>;
+  }
+
   return (
     <div className={styles.modal}>
       <img src={ingredient.image_large} alt={ingredient.name} />

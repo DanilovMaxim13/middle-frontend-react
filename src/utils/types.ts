@@ -13,7 +13,22 @@ export type TIngredient = {
   __v: number;
 };
 
-export type TResponceIngredient = {
+export type TOrder = {
+  name: string;
+  order: {
+    number: number;
+  };
+};
+
+export type TResponseIngredient = {
   success: boolean;
   data: TIngredient[];
+};
+
+export type TResponseOrders = {
+  success: boolean;
+  name: string;
+  order: {
+    number: number;
+  };
 };

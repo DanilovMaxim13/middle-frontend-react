@@ -24,3 +24,11 @@
   flex-wrap: wrap;
   gap: 24px;
 }
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: red;
+}

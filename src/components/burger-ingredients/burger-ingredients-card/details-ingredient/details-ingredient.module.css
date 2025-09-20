@@ -16,3 +16,11 @@
   align-items: center;
   color: var(--text-inactive-color);
 }
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+  color: var(--text-inactive-color);
+}
