@@ -1,4 +1,4 @@
-import { baseApiUrl } from '@components/constants/api.ts';
+import { request } from '@components/constants/api.ts';
 
 import type { AppDispatch } from '@services/store.ts';
 import type { TResponseIngredient } from '@utils/types.ts';
@@ -12,17 +12,10 @@ export const getIngredients = () => {
     dispatch({ type: GET_INGREDIENTS_REQUEST });
 
     try {
-      const response: Response = await fetch(`${baseApiUrl}/ingredients`);
-      const data: TResponseIngredient = (await response.json()) as TResponseIngredient;
+      const data: TResponseIngredient =
+        await request<TResponseIngredient>('/ingredients');
 
-      if (data.success) {
-        dispatch({ type: GET_INGREDIENTS_SUCCESS, payload: data.data });
-      } else {
-        dispatch({
-          type: GET_INGREDIENTS_FAILURE,
-          payload: 'Произошла ошибка!',
-        });
-      }
+      dispatch({ type: GET_INGREDIENTS_SUCCESS, payload: data.data });
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : 'Unknown error occurred';

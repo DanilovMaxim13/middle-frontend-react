@@ -63,7 +63,7 @@ export const IngredientElement = ({
   dragRef(dropRef(ref));
 
   return (
-    <div className={styles.ingredient} key={`${index}${ingredient._id}`} ref={ref}>
+    <div className={styles.ingredient} ref={ref}>
       <DragIcon type="primary" />
       <ConstructorElement
         price={ingredient.price}

@@ -1,4 +1,4 @@
-import { baseApiUrl } from '@components/constants/api.ts';
+import { request } from '@components/constants/api.ts';
 
 import type { AppDispatch, RootState } from '@services/store.ts';
 import type { TIngredient, TResponseOrders } from '@utils/types.ts';
@@ -28,7 +28,7 @@ export const setOrder = () => {
     dispatch({ type: SET_AN_ORDER_REQUEST });
 
     try {
-      const response: Response = await fetch(`${baseApiUrl}/orders`, {
+      const data: TResponseOrders = await request<TResponseOrders>('/orders', {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -36,19 +36,10 @@ export const setOrder = () => {
         body: JSON.stringify({ ingredients: ingredients.map((item) => item?._id) }),
       });
 
-      const data: TResponseOrders = (await response.json()) as TResponseOrders;
-
-      if (data.success) {
-        dispatch({
-          type: SET_AN_ORDER_SUCCESS,
-          payload: { name: data.name, order: data.order },
-        });
-      } else {
-        dispatch({
-          type: SET_AN_ORDER_FAILURE,
-          payload: 'Произошла ошибка!',
-        });
-      }
+      dispatch({
+        type: SET_AN_ORDER_SUCCESS,
+        payload: { name: data.name, order: data.order },
+      });
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : 'Unknown error occurred';

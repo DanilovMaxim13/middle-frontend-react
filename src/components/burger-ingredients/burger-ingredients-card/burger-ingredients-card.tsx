@@ -1,19 +1,14 @@
 import { Counter } from '@krgaa/react-developer-burger-ui-components';
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDrag } from 'react-dnd';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import DetailsIngredient from '@components/burger-ingredients/burger-ingredients-card/details-ingredient/details-ingredient.tsx';
 import Price from '@components/common/price/price.tsx';
 import Modal from '@components/modal/modal.tsx';
-import { setBun, setIngredients } from '@services/burger-constructor/actions.ts';
-import {
-  getCounterIngredient,
-  getIngredients,
-} from '@services/burger-constructor/selectors.ts';
+import { getCounterIngredient } from '@services/burger-constructor/selectors.ts';
 
 import type { TIngredient } from '@/utils/types';
-import type { AppDispatch } from '@services/store.ts';
 
 import styles from './burger-ingredients-card.module.css';
 
@@ -24,8 +19,6 @@ type PropsIngredientCard = {
 const BurgerIngredientCard = ({
   ingredient,
 }: PropsIngredientCard): React.JSX.Element => {
-  const dispatch: AppDispatch = useDispatch();
-  const ingredients: TIngredient[] = useSelector(getIngredients);
   const counter: number = useSelector(getCounterIngredient(ingredient._id));
 
   const ref = useRef<HTMLDivElement>(null);
@@ -38,18 +31,13 @@ const BurgerIngredientCard = ({
   const { image, price, name } = ingredient;
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
-  const handleClick = useCallback(() => {
-    // setIsOpenModal(true);
-    if (ingredient.type === 'bun') {
-      dispatch(setBun(ingredient));
-    } else {
-      dispatch(setIngredients([...ingredients, ingredient]));
-    }
-  }, [ingredients, ingredient]);
-
   return (
     <>
-      <div className={styles.burger_ingredients_item} onClick={handleClick} ref={ref}>
+      <div
+        className={styles.burger_ingredients_item}
+        onClick={() => setIsOpenModal(true)}
+        ref={ref}
+      >
         <img src={image} alt={name} />
         <Price price={price} size="sm" />
         <p className="text text_type_main-default mt-2 mb-6">{name}</p>

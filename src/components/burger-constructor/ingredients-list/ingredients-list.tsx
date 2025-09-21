@@ -25,12 +25,8 @@ export const IngredientsList = (): React.JSX.Element => {
 
   return (
     <div className={`${styles.ingredients_list} custom-scroll`}>
-      {ingredients.map((ingredient: TIngredient, index) => (
-        <IngredientElement
-          key={`${index}${ingredient._id}`}
-          ingredient={ingredient}
-          index={index}
-        />
+      {ingredients.map((ingredient: TIngredient, index: number) => (
+        <IngredientElement key={ingredient.uuid} ingredient={ingredient} index={index} />
       ))}
     </div>
   );
