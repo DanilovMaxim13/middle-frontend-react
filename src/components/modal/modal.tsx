@@ -42,7 +42,7 @@ const Modal = ({ children, isOpen, onClose, title }: PropsModal): React.JSX.Elem
         <div className={`${styles.modal_content} pl-15 pr-15`}>{children}</div>
       </div>
     </div>,
-    document.body
+    document.getElementById('modals') as Element
   );
 };
 

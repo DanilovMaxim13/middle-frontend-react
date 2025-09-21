@@ -1,19 +1,35 @@
 export type TIngredient = {
+  __v: number;
   _id: string;
-  name: string;
-  type: string;
-  proteins: number;
-  fat: number;
-  carbohydrates: number;
   calories: number;
-  price: number;
+  carbohydrates: number;
+  fat: number;
   image: string;
   image_large: string;
   image_mobile: string;
-  __v: number;
+  name: string;
+  price: number;
+  proteins: number;
+  type: string;
+  uuid: string;
 };
 
-export type TResponceIngredient = {
+export type TOrder = {
+  name: string;
+  order: {
+    number: number;
+  };
+};
+
+export type TResponseIngredient = {
   success: boolean;
   data: TIngredient[];
+};
+
+export type TResponseOrders = {
+  success: boolean;
+  name: string;
+  order: {
+    number: number;
+  };
 };

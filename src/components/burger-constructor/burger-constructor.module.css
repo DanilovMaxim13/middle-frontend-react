@@ -33,3 +33,16 @@
   align-self: flex-end;
   gap: 40px;
 }
+
+.empty_element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-inactive-color);
+}
+
+.empty_element img,
+.empty_element :global(.constructor-element__price),
+.empty_element :global(.constructor-element__action) {
+  display: none !important;
+}
