@@ -33,3 +33,8 @@ export type TResponseOrders = {
     number: number;
   };
 };
+
+export type TUser = {
+  email: string;
+  password: string;
+};

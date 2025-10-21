@@ -1,5 +1,5 @@
 import { Button, Input } from '@krgaa/react-developer-burger-ui-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
@@ -19,6 +19,12 @@ const ResetPasswordPage = (): React.JSX.Element => {
 
   const [password, setPassword] = useState<string>('');
   const [token, setToken] = useState<string>('');
+
+  useEffect(() => {
+    if (localStorage.getItem('resetPassword') !== 'true') {
+      void navigate('/forgot-password');
+    }
+  });
 
   const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();

@@ -5,6 +5,7 @@ import type { NavigateFunction } from 'react-router-dom';
 
 export const SET_LOADING = 'SET_LOADING';
 export const SET_ERROR = 'SET_ERROR';
+export const SET_USER = 'SET_USER';
 
 export const login = (email: string, password: string) => {
   return async (dispatch: AppDispatch): Promise<void> => {
@@ -80,6 +81,7 @@ export const forgotPassword = (email: string, navigate: NavigateFunction) => {
       // @ts-expect-error
       if (data.success) {
         dispatch({ type: SET_LOADING, payload: false });
+        localStorage.setItem('resetPassword', 'true');
         void navigate('/reset-password');
       }
       // dispatch({ type: GET_INGREDIENTS_SUCCESS, payload: data.data });
