@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { AppHeader } from '@components/app-header/app-header';
-import { BurgerConstructor } from '@components/burger-constructor/burger-constructor';
-import { BurgerIngredients } from '@components/burger-ingredients/burger-ingredients';
+import ForgotPasswordPage from '@pages/forgot-password/forgot-password.tsx';
+import LoginPage from '@pages/login/login.tsx';
+import MainPage from '@pages/main/main.tsx';
+import RegisterPage from '@pages/register/register.tsx';
+import ResetPasswordPage from '@pages/reset-password/reset-password.tsx';
 import { getIngredients } from '@services/burger-ingredients/actions.ts';
 
 import type { AppDispatch } from '@services/store.ts';
-import type React from 'react';
 
 import styles from './app.module.css';
 
@@ -21,18 +22,20 @@ export const App = (): React.JSX.Element => {
   }, []);
 
   return (
-    <div className={styles.app}>
-      <AppHeader />
-      <h1 className={`${styles.title} text text_type_main-large mt-10 mb-5 pl-5`}>
-        Соберите бургер
-      </h1>
-      <main className={`${styles.main} pl-5 pr-5`}>
-        <DndProvider backend={HTML5Backend}>
-          <BurgerIngredients />
-          <BurgerConstructor />
-        </DndProvider>
-      </main>
-    </div>
+    <Router>
+      <div className={styles.app}>
+        <AppHeader />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/profile" element={<div>/profile</div>} />
+          <Route path="/ingredients/:id" element={<div>/</div>} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
