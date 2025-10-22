@@ -2,11 +2,13 @@ import { Button } from '@krgaa/react-developer-burger-ui-components';
 import { useRef, useState } from 'react';
 import { useDrop } from 'react-dnd';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 import { BunElement } from '@components/burger-constructor/bun-element/bun-element.tsx';
 import { IngredientsList } from '@components/burger-constructor/ingredients-list/ingredients-list.tsx';
 import OrderRegistrationModal from '@components/burger-constructor/order-registration-modal/order-registration-modal.tsx';
 import Price from '@components/common/price/price.tsx';
+import { getUser } from '@services/auth/selectors.ts';
 import { setBun, setIngredients } from '@services/burger-constructor/actions.ts';
 import {
   getCountPrice,
@@ -21,9 +23,11 @@ import styles from './burger-constructor.module.css';
 
 export const BurgerConstructor = (): React.JSX.Element => {
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const currentPrice: number = useSelector(getCountPrice());
   const ingredients: TIngredient[] = useSelector(getIngredients);
+  const user = useSelector(getUser);
 
   const ref = useRef<HTMLDivElement>(null);
   const [collect, ingredientsRef] = useDrop({
@@ -45,6 +49,10 @@ export const BurgerConstructor = (): React.JSX.Element => {
   ingredientsRef(ref);
 
   const handleSetOrder = (): void => {
+    if (!user) {
+      void navigate('/login');
+    }
+
     setIsOpenModal(true);
     void dispatch(setOrder());
   };

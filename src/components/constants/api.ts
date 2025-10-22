@@ -1,4 +1,4 @@
-const baseApiUrl = 'https://norma.nomoreparties.space/api';
+const baseApiUrl = 'https://norma.education-services.ru/api';
 
 type ApiResponse<T> = {
   success: boolean;
