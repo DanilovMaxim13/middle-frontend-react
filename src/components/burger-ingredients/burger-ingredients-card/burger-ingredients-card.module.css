@@ -1,9 +1,14 @@
+.link {
+  width: calc(50% - 12px);
+  text-decoration: none;
+}
+
 .burger_ingredients_item {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(50% - 12px);
+  width: 100%;
   color: var(--text-inactive-color);
   text-align: center;
   cursor: pointer;
