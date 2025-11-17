@@ -1,0 +1,13 @@
+.section {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.feed {
+  display: flex;
+  gap: 60px;
+
+  div {
+    flex-basis: 100%;
+  }
+}

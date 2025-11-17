@@ -1,0 +1,23 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.status_area {
+  display: flex;
+  gap: 36px;
+
+  div {
+    flex-basis: 100%;
+  }
+}
+
+.list_numbers {
+  padding: 0;
+  list-style: none;
+}
+
+.done {
+  color: rgb(0 204 204);
+}

@@ -10,6 +10,7 @@ export const SET_AN_ORDER_FAILURE = 'SET_AN_ORDER_FAILURE';
 export const setOrder = () => {
   return async (dispatch: AppDispatch, getState: () => RootState): Promise<void> => {
     const burgerConstructor = getState().burgerConstructor;
+    const accessToken = localStorage.getItem('accessToken') ?? '';
 
     if (!burgerConstructor.bun || burgerConstructor.ingredients.length === 0) {
       dispatch({
@@ -32,6 +33,7 @@ export const setOrder = () => {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
+          authorization: accessToken,
         },
         body: JSON.stringify({ ingredients: ingredients.map((item) => item?._id) }),
       });
