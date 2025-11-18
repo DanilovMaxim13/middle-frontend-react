@@ -11,6 +11,14 @@ export const CLOSE = createAction('CLOSE');
 export const MESSAGE = createAction<TOrderMessage>('MESSAGE');
 export const ERROR = createAction<string>('ERROR');
 
+export type ordersActionsTypes =
+  | ReturnType<typeof CONNECT>
+  | ReturnType<typeof DISCONNECT>
+  | ReturnType<typeof CONNECTING>
+  | ReturnType<typeof OPEN>
+  | ReturnType<typeof CLOSE>
+  | ReturnType<typeof MESSAGE>;
+
 export const ordersActions = {
   connect: CONNECT,
   disconnect: DISCONNECT,

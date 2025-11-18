@@ -13,6 +13,11 @@
   }
 }
 
+.columns {
+  display: flex;
+  gap: 10px;
+}
+
 .list_numbers {
   padding: 0;
   list-style: none;
@@ -20,4 +25,5 @@
 
 .done {
   color: rgb(0 204 204);
+  font-size: 20px;
 }

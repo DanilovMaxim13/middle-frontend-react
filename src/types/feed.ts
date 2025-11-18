@@ -7,9 +7,9 @@ export type TOrderMessage = {
 export type TOrder = {
   _id: string;
   ingredients: string[];
-  status: string;
+  status: 'done' | 'pending' | 'created';
   name: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   number: number;
 };

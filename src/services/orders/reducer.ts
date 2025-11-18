@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { MESSAGE } from '@services/orders/actions.ts';
+import { CLOSE, MESSAGE } from '@services/orders/actions.ts';
 
 import type { TOrder } from '@/types/feed.ts';
 
@@ -19,5 +19,10 @@ export const ordersReducer = createReducer(initialState, (builder) => {
     state.orders = action.payload.orders;
     state.total = action.payload.total;
     state.totalToday = action.payload.totalToday;
+  });
+  builder.addCase(CLOSE, (state) => {
+    state.orders = [];
+    state.total = undefined;
+    state.totalToday = undefined;
   });
 });

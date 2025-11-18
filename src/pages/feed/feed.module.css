@@ -7,7 +7,7 @@
   display: flex;
   gap: 60px;
 
-  div {
+  > div {
     flex-basis: 100%;
   }
 }

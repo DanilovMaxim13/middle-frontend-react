@@ -2,6 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 import BurgerIngredientModal from '@components/burger-ingredients/burger-ingredients-card/burger-ingredients-modal/burger-ingredients-modal.tsx';
 import DetailsIngredient from '@components/burger-ingredients/burger-ingredients-card/details-ingredient/details-ingredient.tsx';
+import OrderCardInfoModal from '@components/order-list/order-card-info/order-card-info-modal.tsx';
+import OrderCardInfo from '@components/order-list/order-card-info/order-card-info.tsx';
 import Protected from '@components/protected-route/protected-route.tsx';
 import FeedPage from '@pages/feed/feed.tsx';
 import ForgotPasswordPage from '@pages/forgot-password/forgot-password.tsx';
@@ -22,7 +24,8 @@ const AppRoutes = (): React.JSX.Element => {
       {state?.backgroundLocation && (
         <Routes>
           <Route path="/ingredients/:id" element={<BurgerIngredientModal />} />
-          <Route path="/feed/:id" element={<div>В этом спринте/feed/:id MODAL</div>} />
+          <Route path="/feed/:id" element={<OrderCardInfoModal />} />
+          <Route path="/profile/orders/:id" element={<OrderCardInfoModal />} />
         </Routes>
       )}
 
@@ -70,11 +73,11 @@ const AppRoutes = (): React.JSX.Element => {
         >
           <Route index element={<ProfileInfo />} />
           <Route path="orders" element={<ProfileOrders />} />
-          <Route path="orders/:id" element={<div>В этом спринте/orders/:id</div>} />
         </Route>
         <Route path="/ingredients/:id" element={<DetailsIngredient />} />
         <Route path="/feed" element={<FeedPage />} />
-        <Route path="/feed/:id" element={<div>В этом спринте/feed/:id NE MODAL</div>} />
+        <Route path="/feed/:id" element={<OrderCardInfo />} />
+        <Route path="/profile/orders/:id" element={<OrderCardInfo />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
     </>
