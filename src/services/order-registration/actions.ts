@@ -7,6 +7,14 @@ export const SET_AN_ORDER_REQUEST = 'SET_AN_ORDER_REQUEST';
 export const SET_AN_ORDER_SUCCESS = 'SET_AN_ORDER_SUCCESS';
 export const SET_AN_ORDER_FAILURE = 'SET_AN_ORDER_FAILURE';
 
+export type orderRegistrationActionsTypes =
+  | { type: 'SET_AN_ORDER_REQUEST' }
+  | {
+      type: 'SET_AN_ORDER_SUCCESS';
+      payload: { name: string; order: { number: number } };
+    }
+  | { type: 'SET_AN_ORDER_FAILURE'; payload: string };
+
 export const setOrder = () => {
   return async (dispatch: AppDispatch, getState: () => RootState): Promise<void> => {
     const burgerConstructor = getState().burgerConstructor;

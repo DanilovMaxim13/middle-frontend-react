@@ -1,7 +1,7 @@
 import { Button } from '@krgaa/react-developer-burger-ui-components';
 import { useRef, useState } from 'react';
 import { useDrop } from 'react-dnd';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import { BunElement } from '@components/burger-constructor/bun-element/bun-element.tsx';
@@ -15,6 +15,7 @@ import {
   getIngredients,
 } from '@services/burger-constructor/selectors.ts';
 import { setOrder } from '@services/order-registration/actions.ts';
+import { useDispatch } from '@services/store.ts';
 
 import type { AppDispatch } from '@services/store.ts';
 import type { TIngredient } from '@utils/types.ts';

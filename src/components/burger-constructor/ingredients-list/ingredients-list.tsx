@@ -18,7 +18,7 @@ export const IngredientsList = (): React.JSX.Element => {
         isLocked
         price={0}
         text={`Ингредиенты отсутствуют! Добавьте из меню!`}
-        thumbnail=""
+        thumbnail="Empty image"
       />
     );
   }

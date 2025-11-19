@@ -1,7 +1,7 @@
-import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { logout } from '@services/auth/actions.ts';
+import { useDispatch } from '@services/store.ts';
 
 import type { AppDispatch } from '@services/store.ts';
 

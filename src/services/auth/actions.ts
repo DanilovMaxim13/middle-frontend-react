@@ -76,8 +76,8 @@ export const getUser = () => {
     const accessToken = localStorage.getItem('accessToken');
 
     if (!accessToken) {
-      await dispatch(getToken());
-      return void dispatch(getUser());
+      dispatch({ type: SET_AUTH_CHECKED, payload: true });
+      return;
     }
 
     try {
@@ -94,11 +94,6 @@ export const getUser = () => {
         dispatch({ type: SET_AUTH_CHECKED, payload: true });
       }
     } catch (error) {
-      if (error instanceof Error && error.message.includes('401')) {
-        await dispatch(getToken());
-        return void dispatch(getUser());
-      }
-
       const errorMessage =
         error instanceof Error ? error.message : 'Unknown error occurred';
       dispatch({ type: SET_ERROR, payload: errorMessage });

@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 import OrderList from '@components/order-list/order-list.tsx';
 import { CONNECT, DISCONNECT } from '@services/orders/actions.ts';
+import { useDispatch } from '@services/store.ts';
 
 import type { AppDispatch } from '@services/store.ts';
 

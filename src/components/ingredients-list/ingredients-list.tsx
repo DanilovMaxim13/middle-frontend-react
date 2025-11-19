@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getIngredientsSelector } from '@services/burger-ingredients/selectors.ts';
@@ -17,7 +17,7 @@ const IngredientsList = ({
 }): React.JSX.Element => {
   const ingredients: TIngredient[] = useSelector(getIngredientsSelector);
 
-  const ingredientsList = useMemo(() => {
+  const { ingredientsList, totalPrice } = useMemo(() => {
     let totalPrice = 0;
     const ingredientsMap = new Map<string, { ingredient: TIngredient; count: number }>();
     const ingredientsList: React.JSX.Element[] = [];
@@ -60,9 +60,12 @@ const IngredientsList = ({
       );
     }
 
-    setTotalPrice(totalPrice);
-    return ingredientsList;
+    return { ingredientsList, totalPrice };
   }, [order, ingredients]);
+
+  useEffect(() => {
+    setTotalPrice(totalPrice);
+  }, [totalPrice]);
 
   return <ul className={styles.list}>{ingredientsList.map((item) => item)}</ul>;
 };
