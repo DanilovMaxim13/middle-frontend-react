@@ -1,13 +1,12 @@
 import { FormattedDate } from '@krgaa/react-developer-burger-ui-components';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 
 import Price from '@components/common/price/price.tsx';
 import IngredientsList from '@components/ingredients-list/ingredients-list.tsx';
 import { CONNECT, DISCONNECT } from '@services/orders/actions.ts';
 import { getOrders } from '@services/orders/selectors.ts';
-import { useDispatch } from '@services/store.ts';
+import { useDispatch, useSelector } from '@services/store.ts';
 
 import type { TOrder } from '@/types/feed.ts';
 import type { AppDispatch } from '@services/store.ts';

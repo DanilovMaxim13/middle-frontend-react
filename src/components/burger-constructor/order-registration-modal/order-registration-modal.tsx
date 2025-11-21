@@ -1,6 +1,5 @@
 import { Preloader } from '@krgaa/react-developer-burger-ui-components';
 import Done from 'public/done.svg';
-import { useSelector } from 'react-redux';
 
 import Modal from '@components/modal/modal.tsx';
 import {
@@ -8,6 +7,7 @@ import {
   getOrderError,
   getOrderLoading,
 } from '@services/order-registration/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type { PropsModal } from '@components/modal/modal.tsx';
 import type React from 'react';

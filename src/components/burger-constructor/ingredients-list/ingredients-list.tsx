@@ -1,8 +1,8 @@
 import { ConstructorElement } from '@krgaa/react-developer-burger-ui-components';
-import { useSelector } from 'react-redux';
 
 import { IngredientElement } from '@components/burger-constructor/ingredients-list/ingredient-element.tsx';
 import { getIngredients } from '@services/burger-constructor/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type { TIngredient } from '@utils/types.ts';
 

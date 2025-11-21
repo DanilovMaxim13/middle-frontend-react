@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
-import { useSelector } from 'react-redux';
 
 import { getIngredientsSelector } from '@services/burger-ingredients/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type { TOrder } from '@/types/feed.ts';
 import type { TIngredient } from '@utils/types.ts';

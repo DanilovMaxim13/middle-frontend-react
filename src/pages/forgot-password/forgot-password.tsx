@@ -1,11 +1,11 @@
 import { Button, EmailInput } from '@krgaa/react-developer-burger-ui-components';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import AuthLink from '@components/common/auth-link/auth-link.tsx';
 import { request } from '@components/constants/api.ts';
 import { getLoading } from '@services/auth/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type { NavigateFunction } from 'react-router-dom';
 

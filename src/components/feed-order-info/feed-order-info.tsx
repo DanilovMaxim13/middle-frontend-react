@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import { getOrders, getTotal, getTotalToday } from '@services/orders/selectors.ts';
+import { useSelector } from '@services/store.ts';
 import splitArray from '@utils/splitArray.ts';
 
 import type { TOrder } from '@/types/feed.ts';

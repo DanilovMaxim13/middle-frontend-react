@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { getIngredientById } from '@services/burger-ingredients/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type React from 'react';
 

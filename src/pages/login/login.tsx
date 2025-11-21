@@ -1,11 +1,10 @@
 import { Button, EmailInput, Input } from '@krgaa/react-developer-burger-ui-components';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import AuthLink from '@components/common/auth-link/auth-link.tsx';
 import { login } from '@services/auth/actions.ts';
 import { getLoading } from '@services/auth/selectors.ts';
-import { useDispatch } from '@services/store.ts';
+import { useDispatch, useSelector } from '@services/store.ts';
 
 import type { AppDispatch } from '@services/store.ts';
 

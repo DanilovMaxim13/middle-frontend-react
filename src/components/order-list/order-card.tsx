@@ -1,10 +1,10 @@
 import { FormattedDate } from '@krgaa/react-developer-burger-ui-components';
 import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 import Price from '@components/common/price/price.tsx';
 import { getIngredientsSelector } from '@services/burger-ingredients/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type { TOrder } from '@/types/feed.ts';
 import type { TIngredient } from '@utils/types.ts';

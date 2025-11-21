@@ -1,7 +1,6 @@
-import { useSelector } from 'react-redux';
-
 import OrderCard from '@components/order-list/order-card.tsx';
 import { getOrders } from '@services/orders/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type { TOrder } from '@/types/feed.ts';
 
