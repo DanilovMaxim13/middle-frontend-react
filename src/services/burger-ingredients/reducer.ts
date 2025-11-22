@@ -7,13 +7,13 @@ import {
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { TIngredient } from '@utils/types.ts';
 
-type TBurgerIngredientsReducer = {
+interface TBurgerIngredientsReducer {
   error: string | null;
   ingredients: TIngredient[];
   loading: boolean;
-};
+}
 
-const initialState: TBurgerIngredientsReducer = {
+export const initialState: TBurgerIngredientsReducer = {
   error: null,
   ingredients: [],
   loading: false,

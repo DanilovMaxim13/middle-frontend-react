@@ -59,7 +59,7 @@ export const BurgerConstructor = (): React.JSX.Element => {
 
   return (
     <section className={`${styles.burger_constructor_wrapper} pl-4`}>
-      <div className={styles.burger_constructor} ref={ref}>
+      <div className={styles.burger_constructor} ref={ref} data-cy="burgerConstructor">
         <BunElement type="top" />
 
         <IngredientsList />
@@ -69,7 +69,13 @@ export const BurgerConstructor = (): React.JSX.Element => {
 
       <div className={styles.footer}>
         <Price price={currentPrice} size="md" />
-        <Button htmlType="button" onClick={handleSetOrder} size="medium" type="primary">
+        <Button
+          htmlType="button"
+          onClick={handleSetOrder}
+          size="medium"
+          type="primary"
+          data-cy="btn-order"
+        >
           Оформить заказ
         </Button>
       </div>

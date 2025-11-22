@@ -14,6 +14,7 @@ export default tseslint.config(
     ignores: [
       '*.config.*',
       '**/*.d.ts',
+      '**/*.test.js',
       'dist',
       'node_modules',
       'package*.json',
@@ -53,7 +54,8 @@ export default tseslint.config(
       'unused-imports': unusedImports,
     },
     rules: {
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+      "@typescript-eslint/strict-boolean-expressions": "warn",
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {

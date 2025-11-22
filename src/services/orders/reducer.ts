@@ -4,13 +4,13 @@ import { CLOSE, MESSAGE } from '@services/orders/actions.ts';
 
 import type { TOrder } from '@/types/feed.ts';
 
-type TOrdersReducer = {
+interface TOrdersReducer {
   orders: TOrder[];
   total?: number;
   totalToday?: number;
-};
+}
 
-const initialState: TOrdersReducer = {
+export const initialState: TOrdersReducer = {
   orders: [],
 };
 
