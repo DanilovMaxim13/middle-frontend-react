@@ -1,7 +1,7 @@
 import { ConstructorElement } from '@krgaa/react-developer-burger-ui-components';
-import { useSelector } from 'react-redux';
 
 import { getBun } from '@services/burger-constructor/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import styles from '../burger-constructor.module.css';
 
@@ -19,7 +19,7 @@ export const BunElement = ({ type }: BunElementProps): React.JSX.Element => {
         isLocked
         price={0}
         text={`Булочка отсутствует! Добавьте из меню!`}
-        thumbnail=""
+        thumbnail="Empty image"
         type={type}
       />
     );

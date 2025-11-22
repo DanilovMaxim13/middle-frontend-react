@@ -1,11 +1,11 @@
 import { Counter } from '@krgaa/react-developer-burger-ui-components';
 import { useRef } from 'react';
 import { useDrag } from 'react-dnd';
-import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 import Price from '@components/common/price/price.tsx';
 import { getCounterIngredient } from '@services/burger-constructor/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type { TIngredient } from '@/utils/types';
 

@@ -1,0 +1,42 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.image {
+  position: relative;
+  display: flex;
+  flex: 0 0 64px;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  min-height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  & img {
+    position: absolute;
+    width: 150%;
+    min-height: 35px;
+  }
+}
+
+.name {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.price {
+  flex: 0 0 auto;
+}

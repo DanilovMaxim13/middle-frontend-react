@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 
 import { getIsAuthChecked, getUser } from '@services/auth/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 type TProps = {
   children: React.JSX.Element;

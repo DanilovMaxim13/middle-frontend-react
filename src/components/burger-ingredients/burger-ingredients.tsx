@@ -1,6 +1,5 @@
 import { Preloader, Tab } from '@krgaa/react-developer-burger-ui-components';
 import { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import BurgerIngredientCard from '@components/burger-ingredients/burger-ingredients-card/burger-ingredients-card.tsx';
 import { CATEGORY_LABELS } from '@components/constants/category-ingredients.ts';
@@ -9,6 +8,7 @@ import {
   getIngredientsLoading,
   getIngredientsSelector,
 } from '@services/burger-ingredients/selectors.ts';
+import { useSelector } from '@services/store.ts';
 
 import type { TIngredient } from '@utils/types';
 import type { RefObject } from 'react';

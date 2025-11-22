@@ -6,6 +6,10 @@ import type { TIngredient } from '@utils/types.ts';
 export const SET_BUN = 'SET_BUN';
 export const SET_INGREDIENTS = 'SET_INGREDIENTS';
 
+export type burgerConstructorActionsTypes =
+  | { type: 'SET_BUN'; payload: TIngredient }
+  | { type: 'SET_INGREDIENTS'; payload: TIngredient[] };
+
 export const setBun = (ingredient: TIngredient) => {
   return (dispatch: AppDispatch): void => {
     dispatch({

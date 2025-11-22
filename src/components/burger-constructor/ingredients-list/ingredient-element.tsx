@@ -4,10 +4,10 @@ import {
 } from '@krgaa/react-developer-burger-ui-components';
 import { useCallback, useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { setIngredients } from '@services/burger-constructor/actions.ts';
 import { getIngredients } from '@services/burger-constructor/selectors.ts';
+import { useDispatch, useSelector } from '@services/store.ts';
 
 import type { AppDispatch } from '@services/store.ts';
 import type { TIngredient } from '@utils/types.ts';

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { AppHeader } from '@components/app-header/app-header';
 import AppRoutes from '@components/app-routes/app-routes.tsx';
 import { getUser } from '@services/auth/actions.ts';
 import { getIngredients } from '@services/burger-ingredients/actions.ts';
+import { useDispatch } from '@services/store.ts';
 
 import type { AppDispatch } from '@services/store.ts';
 

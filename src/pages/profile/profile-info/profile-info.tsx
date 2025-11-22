@@ -1,9 +1,9 @@
 import { Button, Input } from '@krgaa/react-developer-burger-ui-components';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { setUser } from '@services/auth/actions.ts';
 import { getUser } from '@services/auth/selectors.ts';
+import { useDispatch, useSelector } from '@services/store.ts';
 
 import type { AppDispatch } from '@services/store.ts';
 import type { TUser } from '@utils/types.ts';
