@@ -7,13 +7,13 @@ import {
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { TOrder } from '@utils/types.ts';
 
-type TOrderRegistrationReducer = {
+interface TOrderRegistrationReducer {
   error: string | null;
   order: TOrder | null;
   loading: boolean;
-};
+}
 
-const initialState: TOrderRegistrationReducer = {
+export const initialState: TOrderRegistrationReducer = {
   error: null,
   order: null,
   loading: false,

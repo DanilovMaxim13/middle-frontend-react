@@ -11,9 +11,9 @@ import type { TIngredient } from '@/utils/types';
 
 import styles from './burger-ingredients-card.module.css';
 
-type PropsIngredientCard = {
+interface PropsIngredientCard {
   ingredient: TIngredient;
-};
+}
 
 const BurgerIngredientCard = ({
   ingredient,
@@ -35,6 +35,7 @@ const BurgerIngredientCard = ({
       to={`/ingredients/${_id}`}
       state={{ backgroundLocation: location }}
       className={styles.link}
+      data-cy={`ingredientId-${_id}`}
     >
       <div className={styles.burger_ingredients_item} ref={ref}>
         <img src={image} alt={name} />

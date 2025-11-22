@@ -8,14 +8,14 @@ import {
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { TUser } from '@utils/types.ts';
 
-type TAuthReducer = {
+interface TAuthReducer {
   error: string | null;
   user: TUser | null;
   loading: boolean;
   isAuthChecked: boolean;
-};
+}
 
-const initialState: TAuthReducer = {
+export const initialState: TAuthReducer = {
   error: null,
   user: null,
   loading: false,

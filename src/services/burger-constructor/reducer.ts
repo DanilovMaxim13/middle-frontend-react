@@ -3,12 +3,12 @@ import { SET_BUN, SET_INGREDIENTS } from '@services/burger-constructor/actions.t
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { TIngredient } from '@utils/types.ts';
 
-type TBurgerConstructorReducer = {
+interface TBurgerConstructorReducer {
   bun: TIngredient | null;
   ingredients: TIngredient[];
-};
+}
 
-const initialState: TBurgerConstructorReducer = {
+export const initialState: TBurgerConstructorReducer = {
   bun: null,
   ingredients: [],
 };
